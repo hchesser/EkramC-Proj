@@ -1,0 +1,57 @@
+#include <stdio.h>
+main() {
+
+//-----------Program Variables
+  int i, number_stored, args, counter;
+  FILE *file;
+  char commandString[128]; 
+  char command_from_stdin[128]; 
+  char arguments[128]; 
+  char arg1[128]; 
+  char rest[128];
+  // Where facts are to be stored  
+  char facts[128];
+  
+  
+  printf("Grock- ");
+  
+  // scans standard input and stores in commandString char pointer
+  fgets(commandString, sizeof(commandString), stdin);
+  
+  // compares string up to 128 characters
+  while (strncmp("quit\n", commandString, 128))
+  {
+    res = sscanf(commandString, "%s %[^\n]s", &command_from_stdin, &arguments);
+    if (number_stored > 0)
+    {
+		// checks if the command passed from standard input was "setdb"
+      if (strncmp(command_from_stdin, "setdb",128) == 0)
+      {
+		// Splits arg1 and the rest of any arguments passed from stdin  
+        if (number_stored > 1)
+        {
+          args = sscanf(arguments, "%s %s", &arg1, &rest);
+          // arg1 is the name of the file to read from
+		  file = fopen(arg1,"r");
+          if (database != NULL)
+          {
+            counter = 0;
+            while (fgets(facts, sizeof(line), database)) counter++;
+            fclose(file);
+            printf("Read %d facts from %s\n", counter, arg1);
+          }
+          else
+            printf("Unable to read from %s\n", arg1);
+          if (args > 1) printf("Extra arguments ignored.\n");
+        }
+        else
+          printf("Missing argument.\n");
+      }
+      else
+        printf("Unrecognized command.\n");
+    }
+    printf("Grock- ");
+    fgets(commandString, sizeof(commandString), stdin);
+  }
+}
+
