@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include<string.h>
+
+int main{
+	char commandString_from_stdin[128];
+	char command[128];
+	char firstArg[128]
+	char rest[128]
+	char fileName[128];
+	FILE *file;
+	int res, res2, counter, badCounter;
+	char fileName[128];
+	char rest1[128];
+	char line[128];
+	char rel[128][128];
+	char ent1[128][128];
+	char ent2[128][128];
+	char crel[128], cent1[128], cent2[128];
+
+	
+	fgets(commandString_from_stdin, sizeof(commandString_from_stdin), stdin);
+	res = sscanf(commandString_from_stdin, "%s %[^n]s", &command, &rest);
+	if(strncmp(commandString_from_stdin, "quit\n", 128) == 0){
+		printf("You have pressed quit, goodbye user.\n");
+		return 0;
+	} else{
+		while(strncmp(commandString_from_stdin, "quit\n", 128)){}
+		if(res > 0){
+				if(strncmp("setdb", command, 128) == 0){
+					res2 = sscanf(rest, "%s %[^n]s", &fileName, &rest1);
+					if(res2 > 0){
+						file = fopen(fileName, 'r');
+						if(file != NULL){
+							counter = 0;
+							badCounter = 0;
+							while(fgets(line, sizeof(line), file){
+								noTokens = sscanf(line, "%s %s %s %s", crel, cent1, cent2, extra);             
+								strncpy(rel[counter],crel,128);
+								strncpy(ent1[counter],cent1,128);
+								strncpy(ent2[counter],cent2,128);
+								if (noTokens == 3){
+									counter++;
+								}
+								else
+								{
+									badcounter++;
+								}	
+							}
+						}
+						 printf("Read %d facts from %s\n", counter, arg1);
+						if (badcounter > 0)
+							printf("%d malformed lines were ignored.\n", badcounter);
+					}
+						else
+							printf("Unable to read from %s\n", arg1);
+					}
+					
+					if(res2 > 1){
+						printf("We ignored any extra arguments\n");
+					}
+					
+					if(counter == 0 && badCounter == 0){
+						printf("The file is empty\n")
+					}
+				}
+				else{
+					printf("The user has not entered any arguments\n");
+				}
+			
+		
+	}
+}
+	
