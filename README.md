@@ -1,2 +1,2 @@
 
-## C projects (of my own voilition and 2031 Assignments))
+## C projects (Including QB50 code)
