@@ -1,0 +1,11 @@
+# "$CC -lax25 ..." links the AX.25 library during compliation
+
+#VARIABLES 
+CC=gcc
+
+# MAKE RULES
+all::
+	$(CC) async_qiao.c signal_Handlers_qiao.c
+ax25::
+	$(CC) -lax25 ax25.c signal_Handlers_ax25.c
+
