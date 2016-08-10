@@ -1,5 +1,4 @@
-#ifndef _ASYNC_C
-#define _ASYNC_C
+
 /*
 * File is for testing purposes. 
 */
@@ -129,5 +128,4 @@ int main(int argc, char**argv) {
       
 }
 
-#endif
 
